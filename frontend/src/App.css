@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+:root {
+  --deep-purple: #120458;
+  --neon-pink: #ff00ff;
+  --neon-blue: #00ffff;
+  --neon-purple: #b967ff;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--deep-purple);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.vaporwave-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    linear-gradient(to bottom, 
+      rgba(255,0,255,0.2) 0%, 
+      rgba(0,255,255,0.2) 100%
+    );
+  overflow: hidden;
+  z-index: -1;
+}
+
+.vaporwave-background::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200vw;
+  height: 200vh;
+  background: 
+    radial-gradient(circle at center, var(--neon-purple) 0%, transparent 5%),
+    repeating-linear-gradient(0deg, 
+      transparent 0%, 
+      transparent 5%, 
+      rgba(255,255,255,0.1) 5.1%, 
+      rgba(255,255,255,0.1) 5.2%, 
+      transparent 5.3%, 
+      transparent 10%
+    ),
+    repeating-linear-gradient(90deg, 
+      transparent 0%, 
+      transparent 5%, 
+      rgba(255,255,255,0.1) 5.1%, 
+      rgba(255,255,255,0.1) 5.2%, 
+      transparent 5.3%, 
+      transparent 10%
+    );
+  transform: translate(-50%, -50%) rotate(45deg);
+  animation: backgroundMove 60s linear infinite;
+}
+
+@keyframes backgroundMove {
+  0% {
+    transform: translate(-50%, -50%) rotate(45deg) translateY(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(45deg) translateY(-50%);
+  }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+  background-color: rgba(18, 4, 88, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.App-header {
+  margin-bottom: 2rem;
+}
+
+.neon-text {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 
+    0 0 5px var(--neon-pink),
+    0 0 10px var(--neon-pink),
+    0 0 20px var(--neon-pink),
+    0 0 40px var(--neon-pink);
+  letter-spacing: 4px;
+}
+
+.vaporwave-box {
+  background-color: rgba(18, 4, 88, 0.7);
+  border: 2px solid var(--neon-blue);
+  border-radius: 10px;
+  padding: 2rem;
+  box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue);
+}
+
+.vaporwave-button {
+  background-color: transparent;
+  border: 2px solid var(--neon-pink);
+  color: var(--neon-pink);
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 10px;
+}
+
+.vaporwave-button:hover {
+  background-color: var(--neon-pink);
+  color: var(--deep-purple);
+  box-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+}
+
+.vaporwave-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.connected-text, .proxy-text {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: var(--neon-blue);
+}
+
+.address {
+  color: var(--neon-pink);
+  word-break: break-all;
+}
+
+.error-text {
+  color: #ff3366;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+.wallet-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Stylized tree */
+.content::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  left: -100px;
+  width: 200px;
+  height: 200px;
+  background: 
+    radial-gradient(circle at 30% 70%, var(--neon-purple) 0%, transparent 50%),
+    radial-gradient(circle at 70% 30%, var(--neon-pink) 0%, transparent 50%);
+  opacity: 0.7;
+  filter: blur(20px);
+  z-index: -1;
+}
+
+/* Stylized planet */
+.content::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, var(--neon-blue) 0%, transparent 70%);
+  border-radius: 50%;
+  opacity: 0.7;
+  filter: blur(10px);
+  z-index: -1;
+}

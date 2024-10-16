@@ -1,53 +1,52 @@
-import time
 import os
 from dotenv import load_dotenv
-from ergo_python_appkit.appkit import *
+from ergo_python_appkit.appkit import ErgoAppKit, ErgoTreeTemplate, ErgoContract
 
-# Load environment variables
 load_dotenv()
 
-def launch_token_flight(node_url, proxy_address, wallet_mnemonic, wallet_password):
-    ergo_client = ErgoAppKit(node_url)
-    
-    while True:
-        try:
-            current_height = ergo_client.get_current_height()
-            unspent_boxes = ergo_client.get_unspent_boxes(proxy_address)
-            
-            for box in unspent_boxes:
-                if is_flight_ready(box, current_height):
-                    initiate_flight(ergo_client, box, wallet_mnemonic, wallet_password, current_height)
-            
-            time.sleep(60)  # Check every minute
-        except Exception as e:
-            print(f"Flight delay: {e}")
-            time.sleep(60)  # Wait a minute before retrying
+def distribute_tokens():
+    ergo_client = ErgoAppKit(os.getenv('ERGO_NODE_URL'))
+    proxy_address = os.getenv('PROXY_CONTRACT_ADDRESS')
+    distribution_interval = int(os.getenv('DISTRIBUTION_INTERVAL'))
+    tokens_per_distribution = int(os.getenv('TOKENS_PER_DISTRIBUTION'))
 
-def is_flight_ready(box, current_height):
-    last_flight_height = box.get_registers()[1].value
-    distribution_interval = int(os.getenv('DISTRIBUTION_INTERVAL', 10))
-    return current_height >= last_flight_height + distribution_interval
+    # Get the current height
+    current_height = ergo_client.getCurrentHeight()
 
-def initiate_flight(ergo_client, box, wallet_mnemonic, wallet_password, current_height):
-    tokens_per_distribution = int(os.getenv('TOKENS_PER_DISTRIBUTION', 1000))
-    
-    # Create and sign the transaction
-    unsigned_tx = create_distribution_tx(ergo_client, box, tokens_per_distribution, current_height)
-    signed_tx = ergo_client.sign_transaction(unsigned_tx, wallet_mnemonic, wallet_password)
-    
-    # Submit the transaction
-    tx_id = ergo_client.send_transaction(signed_tx)
-    print(f"Token flight launched! Transaction ID: {tx_id}")
+    # Find the proxy box
+    proxy_box = ergo_client.getBoxesByAddress(proxy_address)[0]
+    last_flight_height = proxy_box.getRegisters()[1].getValue()
 
-def create_distribution_tx(ergo_client, box, tokens_to_distribute, current_height):
-    # Implement the logic to create the unsigned transaction
-    # This is a placeholder and needs to be implemented based on your specific requirements
-    pass
+    if current_height >= last_flight_height + distribution_interval:
+        # Time for a new distribution
+        recipient_address = ErgoTreeTemplate.fromErgoTree(proxy_box.getRegisters()[0].getValue()).toAddress()
+        
+        input_box = ergo_client.getBoxesById(proxy_box.getId())
+        output_box = ergo_client.buildOutBox(
+            value=proxy_box.getValue(),
+            tokens=[(proxy_box.getTokens()[0].getId(), proxy_box.getTokens()[0].getValue() - tokens_per_distribution)],
+            contract=ErgoContract(proxy_address),
+            registers=[recipient_address.getErgoTree(), current_height]
+        )
+        
+        distribution_box = ergo_client.buildOutBox(
+            value=ergo_client.getMinimumBoxValue(),
+            tokens=[(proxy_box.getTokens()[0].getId(), tokens_per_distribution)],
+            contract=ErgoContract(recipient_address.toString()),
+        )
+
+        unsigned_tx = ergo_client.buildUnsignedTransaction(
+            inputs=[input_box],
+            outputs=[output_box, distribution_box],
+            fee=ergo_client.getMinimumFee(),
+            changeAddress=proxy_address
+        )
+
+        signed_tx = ergo_client.signTransaction(unsigned_tx)
+        tx_id = ergo_client.sendTransaction(signed_tx)
+        print(f"Distribution transaction sent: {tx_id}")
 
 if __name__ == "__main__":
-    NODE_URL = os.getenv('ERGO_NODE_URL')
-    PROXY_ADDRESS = os.getenv('PROXY_CONTRACT_ADDRESS')
-    WALLET_MNEMONIC = os.getenv('WALLET_MNEMONIC')
-    WALLET_PASSWORD = os.getenv('WALLET_PASSWORD')
-    
-    launch_token_flight(NODE_URL, PROXY_ADDRESS, WALLET_MNEMONIC, WALLET_PASSWORD)
+    while True:
+        distribute_tokens()
+        time.sleep(60)  # Check every minute

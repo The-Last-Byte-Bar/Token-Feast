@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="org.jpype2">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/off-chain-bot/venv/lib/python3.12/site-packages/org.jpype.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

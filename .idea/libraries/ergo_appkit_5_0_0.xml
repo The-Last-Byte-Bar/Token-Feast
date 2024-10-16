@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="ergo-appkit-5.0.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/off-chain-bot/venv/lib/python3.12/site-packages/ergo_python_appkit/jars/ergo-appkit-5.0.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

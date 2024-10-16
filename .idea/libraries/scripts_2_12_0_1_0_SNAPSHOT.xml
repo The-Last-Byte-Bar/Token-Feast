@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="scripts_2.12-0.1.0-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/scripts/target/scala-2.12/scripts_2.12-0.1.0-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

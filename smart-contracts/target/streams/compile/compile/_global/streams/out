@@ -1,0 +1,28 @@
+[0m[[0m[31merror[0m] [0m[0m/home/whaleshark/Documents/ergo/Token-Flight/smart-contracts/src/main/scala/MintBarToken.scala:37:21: not found: type ErgoToken[0m
+[0m[[0m[31merror[0m] [0m[0m    val token = new ErgoToken([0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/whaleshark/Documents/ergo/Token-Flight/smart-contracts/src/main/scala/MintBarToken.scala:44:25: value MinBoxValue is not a member of object org.ergoplatform.appkit.Parameters[0m
+[0m[[0m[31merror[0m] [0m[0m      .value(Parameters.MinBoxValue)[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/whaleshark/Documents/ergo/Token-Flight/smart-contracts/src/main/scala/MintBarToken.scala:46:17: not enough arguments for constructor ErgoTreeContract: (x$1: sigmastate.Values.ErgoTree, x$2: org.ergoplatform.appkit.NetworkType): org.ergoplatform.appkit.impl.ErgoTreeContract.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter x$2.[0m
+[0m[[0m[31merror[0m] [0m[0m      .contract(new ErgoTreeContract(senderAddress.getErgoAddress.script))[0m
+[0m[[0m[31merror[0m] [0m[0m                ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/whaleshark/Documents/ergo/Token-Flight/smart-contracts/src/main/scala/MintBarToken.scala:55:69: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : org.ergoplatform.appkit.InputBox[0m
+[0m[[0m[31merror[0m] [0m[0m required: java.util.List[org.ergoplatform.appkit.InputBox][0m
+[0m[[0m[31merror[0m] [0m[0m      .boxesToSpend(ctx.getUnspentBoxesFor(senderAddress, 0, 20).get(0))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/whaleshark/Documents/ergo/Token-Flight/smart-contracts/src/main/scala/MintBarToken.scala:67:69: missing argument list for method get in trait List[0m
+[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
+[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `get _` or `get(_)` instead of `get`.[0m
+[0m[[0m[31merror[0m] [0m[0m    val boxesToSpend = ctx.getUnspentBoxesFor(senderAddress, 0, 20).get[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/whaleshark/Documents/ergo/Token-Flight/smart-contracts/src/main/scala/MintBarToken.scala:74:29: value MinBoxValue is not a member of object org.ergoplatform.appkit.Parameters[0m
+[0m[[0m[31merror[0m] [0m[0m          .value(Parameters.MinBoxValue)[0m
+[0m[[0m[31merror[0m] [0m[0m                            ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/whaleshark/Documents/ergo/Token-Flight/smart-contracts/src/main/scala/MintBarToken.scala:76:21: not enough arguments for constructor ErgoTreeContract: (x$1: sigmastate.Values.ErgoTree, x$2: org.ergoplatform.appkit.NetworkType): org.ergoplatform.appkit.impl.ErgoTreeContract.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter x$2.[0m
+[0m[[0m[31merror[0m] [0m[0m          .contract(new ErgoTreeContract(senderAddress.getErgoAddress.script))[0m
+[0m[[0m[31merror[0m] [0m[0m                    ^[0m
+[0m[[0m[31merror[0m] [0m[0m7 errors found[0m

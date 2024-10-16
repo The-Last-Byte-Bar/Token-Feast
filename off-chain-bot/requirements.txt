@@ -1,0 +1,2 @@
+ergo_python_appkit==0.3.2
+python-dotenv==0.19.1
