@@ -12,13 +12,17 @@
     "minterAddr": "3WyZiupQXRBQKrUz7UwKTQTc6kxz1FkzM7zUazKDTQo1xbpJdmoe",
     "recipientWallets": [
       "3WyZiupQXRBQKrUz7UwKTQTc6kxz1FkzM7zUazKDTQo1xbpJdmoe",
-      "3WzG7rdHxK8inns4Jjj36VPZrBjZ3vvFCNGQXGqN6XGfXJkGSXvr"
+      "3WzG7rdHxK8inns4Jjj36VPZrBjZ3vvFCNGQXGqN6XGfXJkGSXvr",
+        "Az5bkwHDjaMMy4mrT2JyUZTQpEHuRSqVGNA8XtkBFx3FBEnsiTPD6XqTdZ4CbcLDNv2fLrWh4b3GatsFHdscDNY14SRdoqjbE8PqDGmNqzoppifYgsKCmTnf7hhCP3HMW82P1yrBJqbCmYMKBe3ZiA6UXQ9T1EmrU6mH2QrmF7XuxWTBfnGZnPdzcRNLSFbVYeQkKDccLZbWAb8mwkn3zaE6Mz3FvbQrB5BjUUDHcccYnYuCfEMzHQj739aJrdKVmhRWBy",
+        "Az5bkwHDjaMMy4mrT2JyUZTQpEHuRSqVGNA8XtkBFx3FBEnsiTPD6XqTdZ4CbcLDNv2fLrWh4b3GatsFHdscDNY14SRdoqjbE8PqDGmNqzoppifYgsJrobkT9kZBVazNLFhdHs2fnou53roUQn3VPjR4VuAYY8BtYjoMuMBW3ixhKCaavNsy96UH62UwLgmv8PTCsxewm2dKGeZgEfnt9ki21oEwK5sWX9zh13SzhV2BY8ss2QUbwXceJUWFG1thdSSirC",
+        "Az5bkwHDjaMMy4mrT2JyUZTQpEHuRSqVGNA8XtkBFx3FBEnsiTPD6XqTdZ4CbcLDNv2fLrWh4b3GatsFHdscDNY14SRdoqjbE8PqDGmNqzoppifYgsKCmTnf7hhCP3HMW82P1yrBJqbCmYMKBe3ZiA6UXQ9T1EmrU6mH2QrmF7XuxWTBfnGZnPdzcRNLSFbVYeQkKDccLZbWAb8mwkn3zaE6Mz3FvbQrB5BjUUDHcccYnYuCfEMzHQj739aJrdKVmhRWBy"
+        
     ]
   },
   "token": {
     "name": "ProxyToken",
     "description": "why test on testnet?",
-    "totalAmount": 200000,
+    "totalAmount": 2000000,
     "decimals": 5,
     "tokenId": ""
   },
