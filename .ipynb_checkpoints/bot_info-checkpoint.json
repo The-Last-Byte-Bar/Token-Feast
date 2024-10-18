@@ -1,0 +1,12 @@
+{
+  "proxy_contract_address": "Su1rWbAodXpXq1N3p2ZVGiyseYD7NoZestpmFZ7pPdvA4mx3rL34T38ReAnogBkPdRWqed9YyuQHDZXVngnm3xB8KUoF25xB3GqNiCC5x2Fv4933KjfRJiUFuW9cxh1q3kqL9ActRjLhXFHCYzx4u9sad7sRzrHNGsWY4YKtnwjspPEU4EREBBdH5PzD9NMqy3pFQib9PqpUCu88jHNooFn2A5aiXQeNLsGPhGnRsoq7C8Sj1wA165XXBZMbVY8e9dcyeaizJNr8oDRmFDoJsHoPtEZkgxazbVFeN56m45cdszMzLCNMTUc4VMJaHUPURMQ2s9JpmSyj9drYksRRo5iDN7NgBTjpfM56FbFh2jDhWR6LdLjPM38BZcrxpTg2PDY4NAzg4KZw9p1RaR7AXC7LwpKgpzAVG",
+  "token_id": "3b0746364ee76b3508100736a85ab589982c671d34ce360c366cbcf00335dd20",
+  "recipient_wallets": [
+    "9hDJ91Rx5TZf4njCG6AAcsf4GEWyQxrh5ioZ95mXQk8QtCNv8Js",
+    "9feNRbYuVz2nQy1V8t2z5saYnWKwmGJ2nYgcMdXBjqYXqHMeWnv",
+    "9gwFTap8YaQEzsMAXdt4pa1BjAsR9gcijMMuxTRrAf4vgMhSnXY",
+    "9hYeUWUG2dAM6sZb9vr5qgF1gACEGQPLN9cbXjxERmJS89Tbadc"
+  ],
+  "tokens_per_round": 100000,
+  "blocks_between_dispense": 1
+}

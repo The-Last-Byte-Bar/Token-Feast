@@ -11,33 +11,30 @@ appKit = ErgoAppKit(node_url, "mainnet", explorer_url, 'hashcream')
 minter_address = "9ebLdLKX7k6gAyruUPeqrT1jqKtscvFiW11EFmX5tcAvmwfZSsH"
 proxy_address = "9eg7v2nkypUZbdyvSKSD9kg8FNwrEdTrfC2xdXWXmEpDAFEtYEn"  # Replace with your actual proxy address
 
-# List of recipient wallets
+# # List of recipient wallets
 recipient_wallets = ['9fj3mV8aF27jZBBH5HBdecVcD5hoUcqqcMmo1j8aUbCA1rceGLE',
-                     '9gPohoQooaGWbZbgTb1JrrqFWiTpM2zBknEwiyDANwmAtAne1Y8']
+                     '9hAcdWpFAv7biCSeUcCvXWYRfEepm1ubdsfg5PC48k9S7ymiU3W',
+                    '9eg7v2nkypUZbdyvSKSD9kg8FNwrEdTrfC2xdXWXmEpDAFEtYEn']
 
 # recipient_wallets = [
-#     "9hDJ91Rx5TZf4njCG6AAcsf4GEWyQxrh5ioZ95mXQk8QtCNv8Js",
-#     "9feNRbYuVz2nQy1V8t2z5saYnWKwmGJ2nYgcMdXBjqYXqHMeWnv",
-#     "9gwFTap8YaQEzsMAXdt4pa1BjAsR9gcijMMuxTRrAf4vgMhSnXY",
-#     "9hYeUWUG2dAM6sZb9vr5qgF1gACEGQPLN9cbXjxERmJS89Tbad",
-#     "c9fYvQMsMN3NNaw33cAFnRdyHy1DpxtxfADvGqUV3ocLptw4Hp",
-#     "cP9fuHCh7cvbWxMXdhNpjxAFVGCtP4W3yP6v7vVLPFYB4PR3Np",
-#     "yAL9ggrhWJVjTHHUrK8qJThWi1yBscmETnT3nxTwVDfQQPCASa",
-#     "Zmxt9fyDqkVk3iDXPNcquyLBehEtiZiqdKb27PnugemJEpGYbT",
-#     "JM7tN9enXTiL3i9CKWKCcE3fby2hSaeoWEWV28evc1j1SK9yKR",
-#     "Dy9cVN9eoPRhRmJQ71TPSkk2eUmMXYpxUVvZvFQo5uB9qjPBM4",
-#     "e3hC82J9i8wsL9HYe4wRtuxXtnvki31uGJd6avKoQ79BXbz2sH",
-#     "WNZSKz8K9fjQi1JrgFZ9QBKGbE7EYDwUwAvGUk95Wa92kV2D4E",
-#     "nggNcnMzN9fvDaBsLKmzP67Cp2i2bmhM1359HhJCrej8y5EGoU",
-#     "cmXDrBqxbW9fHLdYBz5fPdDfMkGMfAsuj6EfXCpmM4GkamT23x",
-#     "eT3hzdHbNJx9gNEKbpPSNfgWkhxsMF4Z9L7uNiXFfsEX4XTVF5",
-#     "XK4kwpQBRsEQ9gHULKUh8kLBBc6F6ddtyzeyhzz2KzGerPbFw7",
-#     "ZHmSUPrRGfnoz9fLytFFzTYALknc2AZ2dRKeg8sLZwe4LX5qAB",
-#     "3FwDysMEeRTHkV"
-# ]
+#     '9hDJ91Rx5TZf4njCG6AAcsf4GEWyQxrh5ioZ95mXQk8QtCNv8Js',
+#     '9feNRbYuVz2nQy1V8t2z5saYnWKwmGJ2nYgcMdXBjqYXqHMeWnv',
+#     '9gwFTap8YaQEzsMAXdt4pa1BjAsR9gcijMMuxTRrAf4vgMhSnXY',
+#     '9hYeUWUG2dAM6sZb9vr5qgF1gACEGQPLN9cbXjxERmJS89Tbadc',
+#     '9fYvQMsMN3NNaw33cAFnRdyHy1DpxtxfADvGqUV3ocLptw4HpcP',
+#     '9fuHCh7cvbWxMXdhNpjxAFVGCtP4W3yP6v7vVLPFYB4PR3NpyAL',
+#     '9ggrhWJVjTHHUrK8qJThWi1yBscmETnT3nxTwVDfQQPCASaZmxt',
+#     '9fyDqkVk3iDXPNcquyLBehEtiZiqdKb27PnugemJEpGYbTJM7tN',
+#     '9enXTiL3i9CKWKCcE3fby2hSaeoWEWV28evc1j1SK9yKRDy9cVN',
+#     '9eoPRhRmJQ71TPSkk2eUmMXYpxUVvZvFQo5uB9qjPBM4e3hC82J',
+#     '9i8wsL9HYe4wRtuxXtnvki31uGJd6avKoQ79BXbz2sHWNZSKz8K',
+#     '9fjQi1JrgFZ9QBKGbE7EYDwUwAvGUk95Wa92kV2D4EnggNcnMzN',
+#     '9fvDaBsLKmzP67Cp2i2bmhM1359HhJCrej8y5EGoUcmXDrBqxbW',
+#     '9fHLdYBz5fPdDfMkGMfAsuj6EfXCpmM4GkamT23xeT3hzdHbNJx',
+#     '9gNEKbpPSNfgWkhxsMF4Z9L7uNiXFfsEX4XTVF5XK4kwpQBRsEQ',
+#     '9fLytFFzTYALknc2AZ2dRKeg8sLZwe4LX5qAB3FwDysMEeRTHkV',
+#     ]
 
-
-import binascii
 
 import binascii
 
@@ -77,7 +74,7 @@ def mint_tokens_to_proxy(token_name, token_description, token_amount, proxy_cont
     token_id = unspent_boxes[0].getId().toString()
     
     mint_output = appKit.mintToken(
-        value=int(1e7),  # 0.01 ERG
+        value=int(1e6*2*3),  # 0.01 ERG
         tokenId=token_id,
         tokenName=token_name,
         tokenDesc=token_description,
@@ -93,7 +90,6 @@ def mint_tokens_to_proxy(token_name, token_description, token_amount, proxy_cont
         sendChangeTo=Address.create(minter_address).getErgoAddress()
     )
     signed_tx = appKit.signTransactionWithNode(unsigned_tx)
-    
     tx_id = appKit.sendTransaction(signed_tx)
     print(f"Minting transaction sent. Transaction ID: {tx_id}")
     return token_id
@@ -125,7 +121,7 @@ def dispense_token(token_id, recipient_address, proxy_contract):
 
 def main():
     current_height = appKit._ergoClient.execute(lambda ctx: ctx.getHeight())
-    unlock_height = current_height + 10  # Unlock after 10 blocks
+    unlock_height = current_height + 1  # Unlock after 10 blocks
     
     # Create the proxy contract
     proxy_contract = create_proxy_contract(recipient_wallets, unlock_height)
@@ -134,8 +130,8 @@ def main():
     
     # Mint tokens to proxy contract
     token_name = "ProxyToken"
-    token_description = "Token for proxy dispensing"
-    total_tokens = len(recipient_wallets) * 10  # Mint enough for 10 rounds
+    token_description = "Test Token for proxy dispensing for sigs mining pool"
+    total_tokens = len(recipient_wallets) * 2 
     token_id = mint_tokens_to_proxy(token_name, token_description, total_tokens, proxy_contract)
     
     print(f"Tokens minted. Token ID: {token_id}")

@@ -1,0 +1,35 @@
+{
+  "node": {
+    "nodeApi": {
+      "apiUrl": "http://37.27.198.175:9053/",
+      "apiKey": "hashcream"
+    },
+    "explorer_url": "https://api.ergoplatform.com/",
+    "networkType": "MAINNET",
+      "nodeAddress": "9ebLdLKX7k6gAyruUPeqrT1jqKtscvFiW11EFmX5tcAvmwfZSsH"
+  },
+  "parameters": {
+    "minterAddr": "9ebLdLKX7k6gAyruUPeqrT1jqKtscvFiW11EFmX5tcAvmwfZSsH",
+    "recipientWallets": [
+      "9hDJ91Rx5TZf4njCG6AAcsf4GEWyQxrh5ioZ95mXQk8QtCNv8Js",
+      "9feNRbYuVz2nQy1V8t2z5saYnWKwmGJ2nYgcMdXBjqYXqHMeWnv",
+      "9gwFTap8YaQEzsMAXdt4pa1BjAsR9gcijMMuxTRrAf4vgMhSnXY",
+      "9hYeUWUG2dAM6sZb9vr5qgF1gACEGQPLN9cbXjxERmJS89Tbadc"
+    ]
+  },
+  "token": {
+    "name": "ProxyToken",
+    "description": "why test on testnet?",
+    "totalAmount": 200000,
+    "decimals": 5,
+    "tokenId": "139cf6f4f22e36198d4c15f2b2f5c6dd08726f871f8603362d2bb193846bfb35"
+  },
+  "distribution": {
+    "tokensPerRound": 100000,
+    "blocksBetweenDispense": 1
+  },
+  "proxy": {
+    "address": "BAJoE5C3Q5332EsdNgMz4CXqVUYdmFVdrHmCojHUzicCehfijtSh2Q4BVRG7x66F9Wb1tU86eT3NSfizjA5AN4RRsZrtNFWJ2UYzpS9c6NSwj4X4dr3yraS2GonAi3naZyZrvCWPBmRdiooB4xKFXEwYgY9gfBSfYekYSgLj1Z2NeKTdpLeEnUYc8j3hw5BdV3zKKB2oDZbHWR7qaEt9HwyNytRPamu8KvidH59s2CUJMzLCgzxvnwzYYqDGhT9CMgY7W4AU27skecjzr6RCJwszapmFmgYg5TpiNU4T7XUT2v1Nuik6t1Ly3sGhvM3PKew",
+    "contract": "100904000e240008cd0362c01cccd973b2ad7170ad0417c939fb1907ea86b72b97f76fa098728a6929640e240008cd02944aa632f1b2d1eb87debb1a0ac6d0b591a5b702c90bac2c7c82043e14e2bc980e240008cd033e50c978d272f54dfd11f0eeac8f05e08c5ab21418ef9688d5f46edd151c38e30e240008cd038eb03af35cc16d8e64f51116e9435c181bf8e6d1cde674d2f9925702968acbd505b8f8a701040204000502d802d601b2a5730000d602db63087201d1ededae83040e7301730273037304d901030e93c272017203927ea3057305ed93b172027306938cb27202730700027308"
+  }
+}

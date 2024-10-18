@@ -1,0 +1,10 @@
+{
+  "proxy_contract_address": "Az5bkwHDjaMMy4mrT2JyUZTQpEHuRSqVGNA8XtkBFx3FBEnsiTPD6XqTdZ4CbcLDNv2fLrWh4b3GatsFHdscDNY14SRdoqjbE8PqDGmNqzoppifYgsKqPH9eRC1HBSuFWDtSHB6FVnL3ynN8jnUHrP9HfzB1W5mzpG7Z3ZgSDuZjHWs3QrBzKwCmpf8ansJPoCucQHFv2g4ucBzqNTtzQGGPtqPJwTTf1T7NwwjNCgrMBcJXVJkudt1wazyMorm9VaD7RJ",
+  "token_id": "228e3da47e76580da9a23cb1b499b3bedb8e421007e13a352e42c74fe751cf0b",
+  "recipient_wallets": [
+    "3WyZiupQXRBQKrUz7UwKTQTc6kxz1FkzM7zUazKDTQo1xbpJdmoe",
+    "3WzG7rdHxK8inns4Jjj36VPZrBjZ3vvFCNGQXGqN6XGfXJkGSXvr"
+  ],
+  "tokens_per_round": 100000,
+  "blocks_between_dispense": 1
+}
