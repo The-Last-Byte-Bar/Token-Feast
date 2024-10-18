@@ -1,125 +1,84 @@
-# Token Flight
+# Ergo Token Distribution Bot
 
-Welcome to Token Flight, a decentralized application (DApp) that brings the spirit of "The Last Byte Bar" to the blockchain world.
-
-## About
-
-Token Flight is a DApp built on the Ergo blockchain. It mints and distributes "Bar" tokens, inspired by "The Last Byte Bar". The application periodically sends these tokens on "flights" to users, creating a unique distribution mechanism.
+This project implements an automated token distribution system on the Ergo blockchain. It includes a minting setup and a distribution bot that periodically sends tokens to a list of specified recipient addresses.
 
 ## Features
 
-- Minting of "Bar" tokens
-- Automated "flight" distribution of tokens every 10 blocks
-- Bar-themed user interface with random quotes
-- Integration with Nautilus wallet for transactions
+- Token minting with customizable parameters
+- Proxy contract creation for secure token holding
+- Automated token distribution to multiple recipients
+- Configurable distribution rounds and frequency
 
-## Project Structure
+## Recent Updates
 
-- `smart-contracts/`: Ergo smart contracts for token minting and flight distribution
-- `off-chain-bot/`: Python bot for automated token flight distribution
-- `frontend/`: React-based web interface with a bar ambiance
-- `backend/`: Node.js server for handling token flights
-- `config/`: Configuration files
-- `scripts/`: Utility scripts for deployment and running the flight bot
+1. **Even Distribution per Round**: The distribution logic has been updated to evenly split the tokens per round among all recipient addresses.
+2. **ERG Allocation**: The minting process now ensures that the proxy contract receives enough ERG to cover all rounds of token distribution.
+3. **Configuration Validation**: Added checks to ensure that the `tokens_per_round` is divisible by the number of recipient wallets.
 
+## Setup
 
-"It's always flight o'clock somewhere!" - The Last Byte Bar
+1. Clone this repository
+2. Install the required dependencies (list them here or refer to a requirements.txt file)
+3. Set up your configuration file (see `config_example.json` for reference)
 
-# Token Flight Startup Procedure
+## Usage
 
-Follow these steps to start your Token Flight system after running the setup script:
+### Minting Setup
 
-## 1. Configure Environment Variables
+Run the minting setup script to create the proxy contract and mint tokens:
 
-1.1. Backend Configuration:
-   - Navigate to the `backend` directory
-   - Create a `.env` file if it doesn't exist
-   - Add the following variables (replace with your actual values):
-     ```
-     ERGO_NODE_URL=http://213.239.193.208:9053
-     ERGO_EXPLORER_URL=https://api.ergoplatform.com
-     BACKEND_WALLET_MNEMONIC=your backend wallet mnemonic phrase here
-     BACKEND_WALLET_PASSWORD=your backend wallet password here
-     PROXY_CONTRACT_ADDRESS=your_proxy_contract_address_here
-     PORT=3001
-     ```
+```
+python minting_setup.py <path_to_config.json>
+```
 
-1.2. Off-chain Bot Configuration:
-   - Navigate to the `off-chain-bot` directory
-   - Create a `.env` file if it doesn't exist
-   - Add the following variables (replace with your actual values):
-     ```
-     ERGO_NODE_URL=http://213.239.193.208:9053
-     BOT_WALLET_MNEMONIC=your bot wallet mnemonic phrase here
-     BOT_WALLET_PASSWORD=your bot wallet password here
-     PROXY_CONTRACT_ADDRESS=your_proxy_contract_address_here
-     DISTRIBUTION_INTERVAL=10
-     TOKENS_PER_DISTRIBUTION=1000
-     ```
+This will create a proxy contract, mint the specified amount of tokens, and save the necessary information for the distribution bot.
 
-## 2. Start the Backend Server
+### Distribution Bot
 
-2.1. Open a new terminal window
-2.2. Navigate to the `backend` directory
-2.3. Run the following command:
-     ```
-     npm start
-     ```
-2.4. Verify that the server starts without errors and is listening on the specified port
+After the minting setup is complete, run the distribution bot:
 
-## 3. Start the Frontend Development Server
+```
+python distribution_bot.py <path_to_config.json>
+```
 
-3.1. Open a new terminal window
-3.2. Navigate to the `frontend` directory
-3.3. Run the following command:
-     ```
-     npm start
-     ```
-3.4. Your default web browser should open automatically to `http://localhost:3000`
-3.5. Verify that the Token Flight interface loads correctly
+The bot will automatically distribute tokens to the specified recipient addresses at the configured intervals.
 
-## 4. Deploy Smart Contracts (if not already deployed)
+## Configuration
 
-4.1. Open a new terminal window
-4.2. Navigate to the `smart-contracts` directory
-4.3. Run the deployment script:
-     ```
-     ./deploy_flight_contracts.sh
-     ```
-4.4. Note the addresses of the deployed contracts and update your `.env` files accordingly
+Create a `config.json` file with the following structure:
 
-## 5. Start the Off-chain Bot
+```json
+{
+  "node_url": "https://node-url.example",
+  "network_type": "MAINNET",
+  "explorer_url": "https://explorer-url.example",
+  "api_key": "your-api-key",
+  "minter_address": "address_of_the_minter",
+  "node_address": "address_of_the_node",
+  "token_name": "Your Token Name",
+  "token_description": "Description of your token",
+  "token_total_amount": 1000000,
+  "token_decimals": 0,
+  "recipient_wallets": ["address1", "address2", "address3"],
+  "tokens_per_round": 1000,
+  "blocks_between_dispense": 720
+}
+```
 
-5.1. Open a new terminal window
-5.2. Navigate to the `off-chain-bot` directory
-5.3. Activate the virtual environment:
-     ```
-     source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-     ```
-5.4. Start the bot:
-     ```
-     python src/flight_distribution_bot.py
-     ```
-5.5. Verify that the bot starts without errors and begins monitoring for distribution events
+Ensure that `token_total_amount` is divisible by `tokens_per_round`, and `tokens_per_round` is divisible by the number of recipient wallets.
 
-## 6. System Verification
+## Files
 
-6.1. Use the frontend interface to initiate a token minting transaction
-6.2. Confirm that the transaction is processed by the backend and submitted to the Ergo blockchain
-6.3. Monitor the off-chain bot's output to ensure it detects and processes the distribution events
-6.4. Check the recipient's wallet to verify that tokens are being distributed as expected
+- `minting_setup.py`: Sets up the proxy contract and mints tokens
+- `distribution_bot.py`: Runs the automated token distribution
+- `config.py`: Handles configuration loading and validation
+- `token_minting.py`: Contains the token minting logic
+- `proxy_contract.py`: Handles the creation of the proxy contract
 
-## 7. Ongoing Monitoring
+## Contributing
 
-7.1. Keep all terminal windows open to monitor the logs of each component
-7.2. Regularly check the Ergo Explorer to verify transactions and token distributions
-7.3. Monitor system resources to ensure all components are running smoothly
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-## Troubleshooting
+## License
 
-- If any component fails to start, check the respective logs for error messages
-- Ensure all environment variables are correctly set in the `.env` files
-- Verify that the Ergo node is accessible and synchronized
-- Check that the wallet mnemonics and passwords are correct and the wallets have sufficient funds for transactions
-
-Remember to secure your system and never share sensitive information like wallet mnemonics or passwords.
+[Specify your license here]
